@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class ComputerStore {
 
     private int id;
-    ArrayList<ComputerGame> storeContainer;
+    private ArrayList<ComputerGame> storeContainer;
 
     ComputerStore() {
         storeContainer = new ArrayList<>();
@@ -33,11 +33,23 @@ public class ComputerStore {
         return this;
     }
 
+    public ArrayList<ComputerGame> getGames() {
+        return this.storeContainer;
+    }
+
+    public int getLargestId(){
+        return this.id;
+    }
+
+    public int getGamesAmount(){
+        return this.storeContainer.size();
+    }
+
     public ArrayList<ComputerGame> searchByTags(String... tags) {
         ArrayList<ComputerGame> gamesFound = new ArrayList<>();
         for (String tag : tags) {
             for (ComputerGame game : this.storeContainer) {
-                if (game.hasTag(tag))
+                if (game.getProperties().hasTag(tag))
                     gamesFound.add(game);
             }
         }
@@ -48,7 +60,18 @@ public class ComputerStore {
         ArrayList<ComputerGame> gamesFound = new ArrayList<>();
 
         for (ComputerGame game : this.storeContainer) {
-            if (game.hasTag(tag))
+            if (game.getProperties().hasTag(tag))
+                gamesFound.add(game);
+        }
+        return gamesFound;
+    }
+
+
+    public ArrayList<ComputerGame> searchByName(String name) {
+        ArrayList<ComputerGame> gamesFound = new ArrayList<>();
+
+        for (ComputerGame game : this.storeContainer) {
+            if (game.getProperties().getName().equals(name))
                 gamesFound.add(game);
         }
         return gamesFound;
@@ -71,11 +94,20 @@ public class ComputerStore {
 
         int counter = 0;
         for (String tag : tags) {
-            if (game.hasTag(tag))
+            if (game.getProperties().hasTag(tag))
                 counter++;
         }
         return counter;
     }
 
-
+    ComputerStore removeGame(int id) {
+        for (int i = 0; i < this.storeContainer.size(); i++) {
+            if (this.storeContainer.get(i).getId() == id)
+                this.storeContainer.remove(i);
+        }
+        return this;
+    }
 }
+
+
+

@@ -1,13 +1,9 @@
 import java.util.ArrayList;
 
 public class ComputerGame {
-    private String name;
-    private String description;
-    private ArrayList<String> genres;
-    private Float price;
-    private Integer ageRestriction;
-    private ArrayList<String> platforms;
-    private Integer id;
+
+    private int id;
+    private ComputerGameParams properties;
 
     public ComputerGame(
             String name,
@@ -18,93 +14,26 @@ public class ComputerGame {
             ArrayList<String> platforms,
             Integer id) {
 
-        this.name = name;
-        this.description = description;
-        this.genres = genres;
-        this.price = price;
-        this.ageRestriction = ageRestriction;
-        this.platforms = platforms;
         this.id = id;
+        this.properties = new ComputerGameParams(name, description, genres, price, ageRestriction, platforms);
 
     }
 
-    public ArrayList<String> getTags() {
-        ArrayList<String> tags = new ArrayList<>();
-        tags.add(this.name);
-        tags.add(this.ageRestriction.toString());
-        tags.addAll(this.genres);
-        tags.addAll(this.platforms);
-        return tags;
+    @Override
+    public String toString() {
+        return this.properties.getName();
     }
 
-
-    public boolean hasTag(String tag){
-        ArrayList<String> gameTags = this.getTags();
-        return gameTags.contains(tag);
+    public ComputerGameParams getProperties() {
+        return properties;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public ComputerGame setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public ComputerGame setDescription(String description) {
-        this.description = description;
-        return this;
-    }
-
-    public ArrayList<String> getGenres() {
-        return genres;
-    }
-
-    public ComputerGame setGenres(ArrayList<String> genres) {
-        this.genres = genres;
-        return this;
-    }
-
-    public Float getPrice() {
-        return price;
-    }
-
-    public ComputerGame setPrice(Float price) {
-        this.price = price;
-        return this;
-    }
-
-    public Integer getAgeRestriction() {
-        return ageRestriction;
-    }
-
-    public ComputerGame setAgeRestriction(Integer ageRestriction) {
-        this.ageRestriction = ageRestriction;
-        return this;
-    }
-
-    public ArrayList<String> getPlatforms() {
-        return platforms;
-    }
-
-    public ComputerGame setPlatforms(ArrayList<String> platforms) {
-        this.platforms = platforms;
-        return this;
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public ComputerGame setId(Integer id) {
+    public ComputerGame setId(int id) {
         this.id = id;
         return this;
     }
-
 }
