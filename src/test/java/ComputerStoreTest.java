@@ -108,6 +108,8 @@ public class ComputerStoreTest {
     public void tagsMatches() throws Exception {
         store.addGame(name1, description1, genres1, price1, ageRestriction1, platforms1);
         assertEquals(3, store.tagsMatches(1, "PC", "Minecraft", "shooter", "horror", "abracadabra", "Digger Online"));
+        assertEquals(0, store.tagsMatches(20, "PC", "Minecraft", "shooter", "horror", "abracadabra", "Digger Online"));
+
     }
 
     @Test
@@ -164,7 +166,6 @@ public class ComputerStoreTest {
                 store.getGames()) {
             gameNamesInStore.add(game.getProperties().getName());
         }
-
         for (ComputerGame game :
                 allGames) {
             gameNamesInTest.add(game.getProperties().getName());

@@ -8,34 +8,46 @@ import static org.junit.Assert.*;
 
 public class ComputerGameTest {
 
+
     ComputerGame game;
+    String name;
+    String description;
+    ArrayList<String> genres;
+    Float price;
+    Integer ageRestriction;
+    ArrayList<String> platforms;
+    int id;
 
     @Before
     public void setUp() throws Exception {
 
-        String name = "Half-life 1";
-        String description = "1st part is awesome. 2nd is awesome as well. 3rd is..";
-        ArrayList<String> genres = new ArrayList<>();
+        name = "Half-life 1";
+        description = "1st part is awesome. 2nd is awesome as well. 3rd is..";
+        genres = new ArrayList<>();
         genres.add("shooter");
         genres.add("action");
         genres.add("horror");
-        Float price = 30.0f;
-        Integer ageRestriction = 16;
-        ArrayList<String> platforms = new ArrayList<>();
+        price = 30.0f;
+        ageRestriction = 16;
+        platforms = new ArrayList<>();
         platforms.add("PC");
         platforms.add("SteamOS");
-        int id = 43;
+        id = 43;
 
         game = new ComputerGame(name, description, genres, price, ageRestriction, platforms, id);
 
     }
 
-    @After
-    public void tearDown() throws Exception {
-    }
 
     @Test
     public void getProperties() throws Exception {
+        ComputerGameParams cgp = new ComputerGameParams(name, description, genres, price, ageRestriction, platforms);
+        assertEquals(cgp.getTags(), game.getProperties().getTags());
+    }
+
+    @Test
+    public void testToString() throws Exception {
+        assertEquals(game.toString(), "Half-life 1");
     }
 
     @Test
