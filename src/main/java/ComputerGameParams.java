@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ComputerGameParams {
+class ComputerGameParams {
     private String name;
     private String description;
     private ArrayList<String> genres;
