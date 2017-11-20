@@ -7,48 +7,42 @@ import static org.junit.Assert.*;
 
 public class CartTest {
 
-    Cart cart = new Cart();
-    Cart cart1 = cart;
-    Cart cart2 = cart;
+    private Cart cart = new Cart();
+    private Cart cart1 = cart;
+    private Cart cart2 = cart;
 
 
     ComputerStore store;
 
-    String name1, name2, name3;
-    String description1, description2, description3;
-    ArrayList<String> genres1, genres2, genres3;
-    Float price1, price2, price3;
-    Integer ageRestriction1, ageRestriction2, ageRestriction3;
-    ArrayList<String> platforms1, platforms2, platforms3;
-    ArrayList<ComputerGame> allGames;
+    private Float price1, price2, price3;
 
-    ComputerGame game1;
-    ComputerGame game2;
-    ComputerGame game3;
+    private ComputerGame game1;
+    private ComputerGame game2;
+    private ComputerGame game3;
 
     @Before
     public void setUp() throws Exception {
 
 
-        name1 = "Half-life 1";
-        name2 = "TESV:Skyrim";
-        name3 = "Dota2";
+        String name1 = "Half-life 1";
+        String name2 = "TESV:Skyrim";
+        String name3 = "Dota2";
 
-        description1 = "1st part is awesome. 2nd is awesome as well. 3rd is..";
-        description2 = "this game is legend";
-        description3 = "forget about your private life";
+        String description1 = "1st part is awesome. 2nd is awesome as well. 3rd is..";
+        String description2 = "this game is legend";
+        String description3 = "forget about your private life";
 
-        genres1 = new ArrayList<>();
+        ArrayList<String> genres1 = new ArrayList<>();
         genres1.add("shooter");
         genres1.add("action");
         genres1.add("horror");
         genres1.add("first-person");
 
-        genres2 = new ArrayList<>();
+        ArrayList<String> genres2 = new ArrayList<>();
         genres2.add("first-person");
         genres2.add("action");
 
-        genres3 = new ArrayList<>();
+        ArrayList<String> genres3 = new ArrayList<>();
         genres3.add("MOBA");
         genres3.add("online");
         genres3.add("third-person");
@@ -58,21 +52,21 @@ public class CartTest {
         price3 = 0.0f;
 
 
-        ageRestriction1 = 16;
-        ageRestriction2 = 18;
-        ageRestriction3 = 14;
+        Integer ageRestriction1 = 16;
+        Integer ageRestriction2 = 18;
+        Integer ageRestriction3 = 14;
 
-        platforms1 = new ArrayList<>();
+        ArrayList<String> platforms1 = new ArrayList<>();
         platforms1.add("PC");
         platforms1.add("SteamOS");
 
-        platforms2 = new ArrayList<>();
+        ArrayList<String> platforms2 = new ArrayList<>();
         platforms2.add("PC");
         platforms2.add("XBox");
         platforms2.add("PS4");
         platforms2.add("PS3");
 
-        platforms3 = new ArrayList<>();
+        ArrayList<String> platforms3 = new ArrayList<>();
         platforms3.add("PC");
 
         game1 = new ComputerGame();
@@ -103,7 +97,7 @@ public class CartTest {
                 .setGenres(genres3)
                 .setPrice(price3);
 
-        allGames = new ArrayList<>();
+        ArrayList<ComputerGame> allGames = new ArrayList<>();
         allGames.add(game1);
         allGames.add(game2);
         allGames.add(game3);
@@ -137,13 +131,13 @@ public class CartTest {
     @Test
     public void getDeliveryStrategy() throws Exception {
 
-        cart1.setDeliveryStrategy(new DelieveryNovaPoshta());
-        assertEquals(cart1, cart.setDeliveryStrategy(new DelieveryNovaPoshta()));
-        assertEquals(DelieveryNovaPoshta.class, cart.getDeliveryStrategy().getClass());
+        cart1.setDeliveryStrategy(new DeliveryNovaPoshta());
+        assertEquals(cart1, cart.setDeliveryStrategy(new DeliveryNovaPoshta()));
+        assertEquals(DeliveryNovaPoshta.class, cart.getDeliveryStrategy().getClass());
 
-        cart2.setDeliveryStrategy(new DelieveryDHL());
-        assertEquals(cart1, cart.setDeliveryStrategy(new DelieveryDHL()));
-        assertEquals(DelieveryDHL.class, cart.getDeliveryStrategy().getClass());
+        cart2.setDeliveryStrategy(new DeliveryDHL());
+        assertEquals(cart1, cart.setDeliveryStrategy(new DeliveryDHL()));
+        assertEquals(DeliveryDHL.class, cart.getDeliveryStrategy().getClass());
     }
 
 
