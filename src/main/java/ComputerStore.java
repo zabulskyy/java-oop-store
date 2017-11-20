@@ -20,14 +20,16 @@ public class ComputerStore {
 
 
         int gameId = ++this.id;
-        ComputerGame newGame = new ComputerGame(
-                name,
-                description,
-                genres,
-                price,
-                ageRestriction,
-                platforms,
-                gameId);
+        ComputerGame newGame = new ComputerGame();
+        newGame.setId(gameId)
+                .getProperties()
+                .setName(name)
+                .setDescription(description)
+                .setPlatforms(platforms)
+                .setAgeRestriction(ageRestriction)
+                .setGenres(genres)
+                .setPrice(price);
+
 
         this.storeContainer.add(newGame);
         return this;
@@ -37,11 +39,11 @@ public class ComputerStore {
         return this.storeContainer;
     }
 
-    public int getLargestId(){
+    public int getLargestId() {
         return this.id;
     }
 
-    public int getGamesAmount(){
+    public int getGamesAmount() {
         return this.storeContainer.size();
     }
 

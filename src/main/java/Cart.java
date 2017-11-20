@@ -1,9 +1,14 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Cart {
-    private ArrayList<ComputerGame> games = new ArrayList<>();
-    PaymentStrategy paymentStrategy;
-    DeliveryStrategy deliveryStrategy;
+    ArrayList<ComputerGame> games;
+    private PaymentStrategy paymentStrategy;
+    private DeliveryStrategy deliveryStrategy;
+
+    Cart() {
+        this.games = new ArrayList<>();
+    }
 
     boolean ship() {
         return true;
@@ -17,9 +22,28 @@ public class Cart {
         return price;
     }
 
-    void addGamesToCart(ArrayList<ComputerGame> games) {
-        this.games.addAll(games);
+    public PaymentStrategy getPaymentStrategy() {
+        return paymentStrategy;
     }
 
+    public Cart setPaymentStrategy(PaymentStrategy paymentStrategy) {
+        this.paymentStrategy = paymentStrategy;
+        return this;
+    }
+
+    public DeliveryStrategy getDeliveryStrategy() {
+        return deliveryStrategy;
+    }
+
+    public Cart setDeliveryStrategy(DeliveryStrategy deliveryStrategy) {
+        this.deliveryStrategy = deliveryStrategy;
+        return this;
+    }
+
+
+    public Cart addGames(ComputerGame... games) {
+        this.games.addAll(Arrays.asList(games));
+        return this;
+    }
 
 }

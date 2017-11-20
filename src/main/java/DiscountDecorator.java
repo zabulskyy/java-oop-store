@@ -3,7 +3,8 @@ public class DiscountDecorator extends CartDecorator {
         super(cart);
     }
 
+    @Override
     double computeTotalPrice() {
-        return cart.computeTotalPrice();
+        return this.cart.computeTotalPrice() * 0.8d;
     }
 }

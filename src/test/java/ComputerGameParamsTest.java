@@ -32,7 +32,13 @@ public class ComputerGameParamsTest {
         platforms.add("PC");
         platforms.add("SteamOS");
 
-        cgp = new ComputerGameParams(name, description, genres, price, ageRestriction, platforms);
+        cgp = new ComputerGameParams();
+        cgp.setName(name)
+                .setDescription(description)
+                .setPlatforms(platforms)
+                .setAgeRestriction(ageRestriction)
+                .setGenres(genres)
+                .setPrice(price);
         cgp2 = cgp;
     }
 

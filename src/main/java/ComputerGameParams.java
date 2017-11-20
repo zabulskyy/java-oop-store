@@ -8,21 +8,13 @@ class ComputerGameParams {
     private Integer ageRestriction;
     private ArrayList<String> platforms;
 
-    public ComputerGameParams(
-            String name,
-            String description,
-            ArrayList<String> genres,
-            Float price,
-            Integer ageRestriction,
-            ArrayList<String> platforms) {
-
-        this.name = name;
-        this.description = description;
-        this.genres = genres;
-        this.price = price;
-        this.ageRestriction = ageRestriction;
-        this.platforms = platforms;
-
+    ComputerGameParams(){
+        name = "";
+        description = "";
+        genres = new ArrayList<>();
+        price = 0f;
+        ageRestriction = 0;
+        platforms = new ArrayList<>();
     }
 
     public ArrayList<String> getTags() {

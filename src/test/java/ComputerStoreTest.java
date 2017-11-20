@@ -78,9 +78,33 @@ public class ComputerStoreTest {
 
         assertEquals(new ArrayList<ComputerGame>(), store.getGames());
 
-        game1 = new ComputerGame(name1, description1, genres1, price1, ageRestriction1, platforms2, 1);
-        game2 = new ComputerGame(name2, description2, genres2, price2, ageRestriction2, platforms2, 2);
-        game3 = new ComputerGame(name3, description3, genres3, price3, ageRestriction3, platforms3, 3);
+        game1 = new ComputerGame();
+        game2 = new ComputerGame();
+        game3 = new ComputerGame();
+        game1.setId(1)
+                .getProperties()
+                .setName(name1)
+                .setDescription(description1)
+                .setPlatforms(platforms1)
+                .setAgeRestriction(ageRestriction1)
+                .setGenres(genres1)
+                .setPrice(price1);
+        game2.setId(2)
+                .getProperties()
+                .setName(name2)
+                .setDescription(description2)
+                .setPlatforms(platforms2)
+                .setAgeRestriction(ageRestriction2)
+                .setGenres(genres2)
+                .setPrice(price2);
+        game3.setId(3)
+                .getProperties()
+                .setName(name3)
+                .setDescription(description3)
+                .setPlatforms(platforms3)
+                .setAgeRestriction(ageRestriction3)
+                .setGenres(genres3)
+                .setPrice(price3);
 
         allGames = new ArrayList<>();
         allGames.add(game1);

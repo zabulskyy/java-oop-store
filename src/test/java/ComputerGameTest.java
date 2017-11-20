@@ -34,14 +34,28 @@ public class ComputerGameTest {
         platforms.add("SteamOS");
         id = 43;
 
-        game = new ComputerGame(name, description, genres, price, ageRestriction, platforms, id);
+        game = new ComputerGame();
+        game.setId(id)
+                .getProperties()
+                .setName(name)
+                .setDescription(description)
+                .setPlatforms(platforms)
+                .setAgeRestriction(ageRestriction)
+                .setGenres(genres)
+                .setPrice(price);
 
     }
 
 
     @Test
     public void getProperties() throws Exception {
-        ComputerGameParams cgp = new ComputerGameParams(name, description, genres, price, ageRestriction, platforms);
+        ComputerGameParams cgp = new ComputerGameParams();
+        cgp.setName(name)
+                .setDescription(description)
+                .setPlatforms(platforms)
+                .setAgeRestriction(ageRestriction)
+                .setGenres(genres)
+                .setPrice(price);
         assertEquals(cgp.getTags(), game.getProperties().getTags());
     }
 
