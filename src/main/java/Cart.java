@@ -46,4 +46,12 @@ public class Cart {
         return this;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Cart)) return false;
+        Cart newobj = (Cart) obj;
+        return (newobj.games == this.games
+                && newobj.getDeliveryStrategy() == this.getDeliveryStrategy()
+                && newobj.getPaymentStrategy() == this.getPaymentStrategy());
+    }
 }

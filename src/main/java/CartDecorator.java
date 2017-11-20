@@ -8,11 +8,6 @@ public class CartDecorator extends Cart {
     }
 
     @Override
-    boolean ship() {
-        return true;
-    }
-
-    @Override
     double computeTotalPrice() {
         double price = 0;
         for (ComputerGame game : this.cart.games) {
@@ -21,7 +16,7 @@ public class CartDecorator extends Cart {
         return price;
     }
 
-    @Override
+
     public Cart addGames(ComputerGame... games){
         this.cart.games.addAll(Arrays.asList(games));
         return this;
