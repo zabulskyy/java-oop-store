@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ComputerStore {
+class ComputerStore {
 
     private int id;
     private ArrayList<ComputerGame> storeContainer;
@@ -10,7 +10,7 @@ public class ComputerStore {
         this.id = 0;
     }
 
-    public ComputerStore addGame(
+    ComputerStore addGame(
             String name,
             String description,
             ArrayList<String> genres,
@@ -35,19 +35,19 @@ public class ComputerStore {
         return this;
     }
 
-    public ArrayList<ComputerGame> getGames() {
+    ArrayList<ComputerGame> getGames() {
         return this.storeContainer;
     }
 
-    public int getLargestId() {
+    int getLargestId() {
         return this.id;
     }
 
-    public int getGamesAmount() {
+    int getGamesAmount() {
         return this.storeContainer.size();
     }
 
-    public ArrayList<ComputerGame> searchByTags(String... tags) {
+    ArrayList<ComputerGame> searchByTags(String... tags) {
         ArrayList<ComputerGame> gamesFound = new ArrayList<>();
         for (String tag : tags) {
             for (ComputerGame game : this.storeContainer) {
